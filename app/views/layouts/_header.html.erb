@@ -1,10 +1,27 @@
 <header>
+　
 	<nav>
+	<% if logged_in? %>
 		<ul>
-			<li><%= link_to "HOME", "#" %></li>
+			<li><%= link_to "TOP", "#" %></li>
 			<li><%= link_to "SEARCH", "#" %></li>
 			<li><%= link_to "MYPAGE", "#" %></li>
 			<li><%= link_to "UPROAD", "#" %></li>
+			<li><%= link_to "Logout", logout_path, method: :delete %></li>
 		</ul>
-	</nav>
+
+	<% else %>
+	　
+		<ul>
+			<li><%= link_to "TOP", "#" %></li>
+			<li><%= link_to "Sign up", "#" %></li>	
+			<li><%= link_to "SEARCH", "#" %></li>
+			<li><%= link_to "Log in", "#" %></li>
+			<li><%= link_to "MYPAGE", "#" %></li>
+			<li><%= link_to "UPROAD", "#" %></li>
+			
+		</ul>
+	<% end %>
+	 </nav>	
+	
 </header>
