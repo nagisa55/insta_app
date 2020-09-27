@@ -1,19 +1,29 @@
-<h1>新規ユーザ登録フォーム</h1>
+<h1>Sign up</h1>
 
  <%= form_with(model: @user, local: true) do |f| %>
 		<div>
-			<%= f.label :lastname, "性" %>
+			<%= f.label :lastname, "Last name" %>
 			<%= f.text_field :lastname %>	
 		</div>
 
 		<div>
-			<%= f.label :firstname, "名前" %>
+			<%= f.label :firstname, "First name" %>
 			<%= f.text_field :firstname %>		
 		</div>
 
 		<div>
-			<%= f.label :username, "ユーザーネーム" %>
-			<%= f.text_field :userame %>	
+			<%= f.label :username, "User name" %>
+			<%= f.text_field :username %>	
+		</div>
+
+		<div>
+			<%= f.label :tel, "Tel" %>
+			<%= f.text_field :tel %>	
+		</div>
+
+		<div>
+			<%= f.label :email, "Email" %>
+			<%= f.text_field :email %>	
 		</div>
 
 		<div>
@@ -26,10 +36,7 @@
 			<%= f.text_field :password_confirmation %>
 		</div>
 
-		<label class="checkbox">
-          <%= f.check_box :agreement, :as => :boolean, checked:false %>
-          <%= link_to "利用規約", "#", { target:"blank" } %>に同意する
-     </label>
+	
 
 		<%= f.submit "Sign up" %>
 	<% end %>  
