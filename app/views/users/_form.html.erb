@@ -1,0 +1,40 @@
+<%= form_with(model: @user, local: true) do |f| %>
+    <div>
+        <%= f.label :lastname, "Last name" %>
+        <%= f.text_field :lastname %>	
+    </div>
+
+    <div>
+        <%= f.label :firstname, "First name" %>
+        <%= f.text_field :firstname %>		
+    </div>
+
+    <div>
+        <%= f.label :username, "User name" %>
+        <%= f.text_field :username %>	
+    </div>
+
+    <div>
+        <%= f.label :tel, "Tel" %>
+        <%= f.text_field :tel %>	
+    </div>
+
+    <div>
+        <%= f.label :email, "Email" %>
+        <%= f.text_field :email %>	
+    </div>
+
+    <div>
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password %>
+    </div>
+
+    <div>
+        <%= f.label :password_confirmation %>
+        <%= f.text_field :password_confirmation %>
+    </div>
+
+
+
+    <%= f.submit yield(:button_text) %>
+<% end %>  

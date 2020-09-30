@@ -6,4 +6,8 @@ module SessionsHelper
 	def logged_in?
 		!!current_user
 	end
+
+	def current_user?(user)
+	 user == correct_user	
+	end 
 end
