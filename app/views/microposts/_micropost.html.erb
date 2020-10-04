@@ -1,0 +1,7 @@
+  <p>
+  <%= image_tag micropost.picture.url if micropost.picture? %>
+    <%= micropost.content %>    
+  </p> 
+  Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+
+
