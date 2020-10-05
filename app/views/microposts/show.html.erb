@@ -3,6 +3,18 @@
 	</p>
 	<p>
 		<%= @micropost.content %>    
-  </p> 
+	</p> 
+
+	<% @comments.each do |comment| %>
+		<%= comment.user.username %>
+		<%= comment.comment_content %>
+		<% end %>
+
+	<%= form_with(model:[@micropost, @comment], local: true) do |f| %>
+		<%= f.text_field :comment_content %>
+		<br>
+		<%= f.submit 'コメントする' %>
+	<% end %>
+	
 	
 	<%= link_to "一覧に戻る", user_path %>
