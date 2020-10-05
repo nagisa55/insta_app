@@ -5,6 +5,7 @@ class Micropost < ApplicationRecord
   validates :picture, presence: true
   mount_uploader :picture, PictureUploader
   validate :picture_size
+  has_many :comments, dependent: :destroy
 
   private
 
