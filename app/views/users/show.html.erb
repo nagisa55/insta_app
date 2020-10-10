@@ -1,6 +1,6 @@
 <div>
 <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
-  <%= @user.username %>
+  <%= current_user.username %>
 </div>
 
 <aside>
@@ -8,12 +8,12 @@
     <li<a href="#">Posts</a></li>
     <li<a href="#">Following</a></li>
     <li<a href="#">Followers</a></li>
-
   </ul>
 </aside>
+<%= render 'relationships/follow_button', user: @user %>
 <div class="col-md-8">
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>投稿数(<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
       <%= render @microposts, locals: {micropost: @micropost} %>
       </ol>
