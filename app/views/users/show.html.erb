@@ -1,23 +1,33 @@
-<div>
-<img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
-  <%= current_user.username %>
+<% provide(:title, @user.username) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+       <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
+        <%= @user.username %>
+      </h1>
+      <div>
+         <%= @user.introduction %>
+      </div>
+    </section>
+  </aside>
 </div>
 
-<aside>
-  <ul>
-    <li<a href="#">Posts</a></li>
-    <li<a href="#">Following</a></li>
-    <li<a href="#">Followers</a></li>
-  </ul>
-</aside>
 <%= render 'relationships/follow_button', user: @user %>
-<div class="col-md-8">
+  <div class="col-md-6">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="#">Following</a><span class="badge badge-secondary"><%= @count_followings %></span></li>
+      <li class="nav-item"><a href="#">Followers</a><span class="badge badge-secondary"><%= @count_followers %></span></li>
+    </ul>
     <% if @user.microposts.any? %>
-      <h3>投稿数(<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
+      <p>Posts(<%= @user.microposts.count %>)</p>
+      <div class="col-4">
+      <ol class="microposts ">
       <%= render @microposts, locals: {micropost: @micropost} %>
       </ol>
       <%= will_paginate @microposts %>
     <% end %>
+    </div>
 </div>
-<%= link_to "Edit profile", edit_user_path %>
+
+<%= link_to "Edit profile", edit_user_path(current_user) %>
