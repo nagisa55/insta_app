@@ -8,7 +8,7 @@
 	validates :email, presence: true, length: { maximum: 255 },
 										format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
 										uniqueness: { case_sensitive: false }
-	
+	validates :introduction, presence: true, length: { maximum: 100 }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	has_many :microposts, dependent: :destroy
@@ -32,5 +32,6 @@
 	def following?(other_user)
 		self.followings.include?(other_user)
 	end
+	
 end
 

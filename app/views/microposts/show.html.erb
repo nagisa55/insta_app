@@ -4,6 +4,10 @@
 	<p>
 		<%= @micropost.content %>    
 	</p> 
+	Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+		<% if logged_in? && current_user.id == @micropost.user_id %>　
+			<%= link_to "delete", @micropost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+		<% end %>
 
 	<% @comments.each do |comment| %>
 		<%= comment.user.username %>
@@ -17,6 +21,6 @@
 	<% end %>
 	
 	
-	<%= link_to "一覧に戻る", user_path(@micropost) %>
+	<%= link_to "一覧に戻る", user_path(@user) %>
 
 	

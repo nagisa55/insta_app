@@ -7,6 +7,10 @@ class Micropost < ApplicationRecord
   validate :picture_size
   has_many :comments, dependent: :destroy
 
+  def user
+    return User.find_by(id: self.user_id)
+  end
+
   private
 
   def picture_size
@@ -14,4 +18,6 @@ class Micropost < ApplicationRecord
       errors.add(:picture, "should be less than 5MB")
     end
   end
+
+ 
 end

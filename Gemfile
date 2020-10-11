@@ -20,6 +20,7 @@ gem 'mini_magick',  '4.7.0'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6' 
 gem 'pry-rails'
 gem 'bootstrap-sass', '3.3.7'
+gem 'faker', '1.7.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

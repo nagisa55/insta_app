@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in, only: [:show, :edit, :update]
+  before_action :require_logged_in, only: [:index, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   
-
   def new
     @user = User.new
   end
 
+  def index
+    @users = User.all
+  end
+
   def show
-    @user = User.find_by(params[:id]) 
+    @user = User.find(params[:id]) 
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
@@ -16,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:sucesee]= "登録が完了しました"
+      login @user
       redirect_to @user
     else
       render "new"
@@ -40,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:lastname, :firstname, :username, :password, :password_confirmation, :agreement)
+    params.require(:user).permit(:lastname, :firstname, :username, :password, :password_confirmation, :agreement, :introduction )
   end
 
 end
