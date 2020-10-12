@@ -2,6 +2,11 @@ class MicropostsController < ApplicationController
   before_action :require_logged_in
   before_action :correct_user, only: [:destroy]
   
+  def index
+    @search = Micropost.ransack(params[:q])
+    @microposts = @search.result
+
+  end 
 
   def new
     @micropost = Micropost.new

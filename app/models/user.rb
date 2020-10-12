@@ -8,7 +8,7 @@
 	validates :email, presence: true, length: { maximum: 255 },
 										format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
 										uniqueness: { case_sensitive: false }
-	validates :introduction, presence: true, length: { maximum: 100 }
+	validates :introduction, length: { maximum: 100 }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	has_many :microposts, dependent: :destroy
@@ -17,7 +17,8 @@
 	has_many :followings, through: :relationships, source: :follow
 	has_many :reverse_of_relationship, class_name: "Relationship", foreign_key: "follow_id"
 	has_many :followers, through: :reverse_of_relationship, source: :user
-
+	has_many :favorites, dependent: :destroy
+	has_many :fav_microposts, through: :favorites, source: :micropost
 	def follow(other_user)
 		unless self == other_user
 			self.relationships.find_or_create_by(follow_id: other_user.id)
@@ -32,6 +33,7 @@
 	def following?(other_user)
 		self.followings.include?(other_user)
 	end
+	
 	
 end
 

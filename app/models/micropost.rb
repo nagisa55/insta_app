@@ -6,10 +6,28 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate :picture_size
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 
   def user
     return User.find_by(id: self.user_id)
   end
+
+  def liked_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+  def like(user)
+    favorites.create(user_id: user.id)
+  end
+
+  def unlike(user)
+    favorites.find_by(user_id: user.id).destroy
+  end
+
+  def feed_microposts
+		Micropost.where(user_id: self.following_ids + [self.id])
+	end	
 
   private
 

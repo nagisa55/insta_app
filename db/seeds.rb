@@ -12,7 +12,7 @@
       User.create!(
        lastname: "田中#{n + 1}",
        firstname:  "太郎#{n + 1}",
-       eusername: "taro#{n + 1}",
+        username: "taro#{n + 1}",
         email: "test#{n + 1}@test.com",
         password: "aaaaaa#{n + 1}",
         password_confirmation: "aaaaaa#{n + 1}"

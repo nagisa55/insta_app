@@ -4,9 +4,14 @@
 	<p>
 		<%= @micropost.content %>    
 	</p> 
-	Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+		<%= time_ago_in_words(@micropost.created_at) %> ago.
+		<div id="like-btn-<%= @micropost.id %>">
+			<%= render partial: 'favorites/favorite', locals:{ micropost: @micropost }%>
+		</div>	
 		<% if logged_in? && current_user.id == @micropost.user_id %>　
+		<div>
 			<%= link_to "delete", @micropost, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+		</div>	
 		<% end %>
 
 	<% @comments.each do |comment| %>

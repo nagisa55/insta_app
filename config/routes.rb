@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'favorites/create'
+  get 'favorites/destroy'
   get 'relationships/create'
   get 'relationships/destroy'
   get 'microposts/create'
@@ -16,10 +18,12 @@ Rails.application.routes.draw do
       get :followings
       get :followers
     end
+    
   end
    
-  resources :microposts, only: [:new, :create, :destroy, :show] do
+  resources :microposts do
    resources :comments, only: [:create]
+   resource :favorites, only: [:create, :destroy]
   end 
 
   resources :relationships, only:[:create, :destroy] 
