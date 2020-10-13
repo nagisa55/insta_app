@@ -13,9 +13,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id]) 
     @microposts = @user.microposts.paginate(page: params[:page])
-
     favorites = Favorite.where(user_id: current_user.id).pluck(:micropost_id)  
-    @favorite_list = Micropost.find(favorites)     
+    @favorite_list = Micropost.find(favorites) 
+    @micropost = Micropost.new  
+    @comments = @micropost.comments  
+    @comment = current_user.comments.new
   end
 
 

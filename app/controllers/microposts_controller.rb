@@ -23,7 +23,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
        flash[:success] = "投稿されました。"
-       redirect_to @micropost
+       redirect_to "/"
     else
       render :new
     end  
