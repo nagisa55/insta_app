@@ -2,7 +2,7 @@
 <% provide(:title, @user.username) %>
 <div class="container">
   <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-6">
       <section class="user_info">
         <h1>
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
@@ -12,7 +12,9 @@
           <%= @user.introduction %>
         </div>
       </section>
-      <%= link_to "Edit profile", edit_user_path(current_user) %>
+      <% if @user == current_user %>
+        <%= link_to "Edit profile", edit_user_path(current_user) %>
+      <% end %> 
     </aside>
   </div>
  </div> 
