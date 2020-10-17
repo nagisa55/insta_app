@@ -7,7 +7,7 @@ class Micropost < ApplicationRecord
   validate :picture_size
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :users, through: :favorites
+  has_many :favorite_users, through: :favorites, source: :user
 
   def user
     return User.find_by(id: self.user_id)
@@ -28,6 +28,10 @@ class Micropost < ApplicationRecord
   def feed_microposts
 		Micropost.where(user_id: self.following_ids + [self.id])
 	end	
+
+  def like?(user)
+    favorite_users.include?(user)
+  end
 
   private
 

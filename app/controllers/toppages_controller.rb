@@ -3,6 +3,7 @@ class ToppagesController < ApplicationController
     if logged_in?
       @search = Micropost.ransack(params[:q])
       @microposts = @search.result
+      @micropost = Micropost.find_by(params[:id])
     end
   end
 end

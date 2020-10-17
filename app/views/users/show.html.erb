@@ -35,13 +35,7 @@
       <% @microposts.each do |micropost| %> 
         <div class="col-4">
           <ol class= "microposts ">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <%= image_tag micropost.picture.url if micropost.picture %>
-            </button>
-            <!--Modal-->
-            <%= render "microposts/modal", micropost: @micropost %>
-          </ol>
+            <%= link_to ( image_tag ( micropost.picture.url if micropost.picture)), micropost %>
          </div> 
       <% end %> 
  <% end %>

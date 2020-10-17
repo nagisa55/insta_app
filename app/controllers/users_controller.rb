@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @micropost = Micropost.new  
     @comments = @micropost.comments  
     counts(@user)
+    favorites = Favorite.where(user_id: current_user.id).pluck(:micropost_id)
+    @favorite_list = Micropost.find(favorites)
   end
 
 
