@@ -25,7 +25,7 @@
       Micropost.create!(
         user_id: "#{n+1}",
         content: "可愛い動物",
-        picture:File.open("./public/images/kawauso.png")
+        picture:File.open("./app/assets/images/kawauso.png")
       )
     end
 
