@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in, only: [:index, :edit, :update, :folloeing, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :require_logged_in, only: [:index, :edit, :update, :destroy, :folloeing, :followers]
+  before_action :correct_user, only: [:edit, :update, :delete]
   
   def new
     @user = User.new
@@ -45,6 +45,12 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "アカウントを削除しました。"
+    redirect_to root_url
   end
 
   def following

@@ -53,12 +53,4 @@ class PictureUploader < CarrierWave::Uploader::Base
     %w(jpeg png)
   end
 
-  def square(size)
-    narrow = self[:width] > self[:height] ? self[:height] : self[:width]
-    combine_options do |c|
-     c.gravity "center"
-     c.crop "#{narrow}x#{narrow}+0+0"
-    end
-    resize "#{size}x#{size}"
-  end
 end
