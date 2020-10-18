@@ -9,10 +9,6 @@ class Micropost < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
 
-  def user
-    return User.find_by(id: self.user_id)
-  end
-
   def liked_by?(user)
     favorites.where(user_id: user.id).exists?
   end

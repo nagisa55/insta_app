@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
   end 
   
   def show
-    @micropost = Micropost.find_by(params[:id])
+    @micropost = Micropost.find(params[:id])
     @user = @micropost.user
     @comments = @micropost.comments
     @comment = current_user.comments.new
