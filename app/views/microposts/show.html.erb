@@ -1,4 +1,4 @@
-
+<!--投稿写真詳細-->
 <p>
 　<%= image_tag @micropost.picture.url if @micropost.picture? %>
 </p>
@@ -27,11 +27,3 @@
 <% end %>
 
 <%= link_to "一覧に戻る", user_path(@user) %>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    var sample = "サンプル";
-
-    console.log(sample);
-  });
-</script>

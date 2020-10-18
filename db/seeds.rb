@@ -20,3 +20,12 @@
         password_confirmation: "aaaaaa#{n + 1}"
       )
     end
+
+5.times do |n|
+      Micropost.create!(
+        user_id: "#{n+1}",
+        content: "可愛い動物",
+        picture:File.open("./public/images/penguin.jpeg")
+      )
+    end
+

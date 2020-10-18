@@ -4,7 +4,7 @@
 /*全体*/
 
 body {
-  padding-top: 60px;
+  padding: 120px;
 }
 
 section {
@@ -27,6 +27,10 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+}
+
+.f-cantainer {
+ display: flex;
 }
 
 /* sidebar */
@@ -70,7 +74,7 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 80%;
   margin-bottom: 15px;
 }
 
@@ -94,21 +98,3 @@ input {
     color: $state-danger-text;
   }
 }
-
-/*お気に入りボタン*/
-
-.like-btn {
-  width: 25px;
-  height: 30px;
-  font-size: 25px;
-  color: #808080; 
-  margin-left: 20px;
-  }
- 
- .unlike-btn {
-  width: 25px;
-  height: 30px;
-  font-size: 25px;
-  color: #e54747;
-  margin-left: 20px;
-  }

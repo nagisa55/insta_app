@@ -19,26 +19,27 @@
   </div>
  </div> 
 
+ <!--フォローボタン-->
 <%= render 'relationships/follow_button', user: @user %>
-<div class="container">
-  <div class="col-md-6">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#">Following</a><span class="badge badge-secondary"><%= @count_followings %></span></li>
-      <li class="nav-item"><a href="#">Followers</a><span class="badge badge-secondary"><%= @count_followers %></span></li>
+  <div class="container">
+    <ul class="f-container nav nav-tabs nav-justified mb-3">
+      <li class="col-md-5 nav-item"><a href="<%= following_user_path(@user) %>">フォロー</a><%= @count_followings %></li>
+      <li class="col-md-5 nav-item"><a href="<%= follower_user_path(@user) %>">フォロワー</a><%= @count_followers %></li>
     </ul>
   </div>
-</div>
 
 <!--投稿写真一覧-->
-  <% if @user.microposts.any? %>
-    <p>Posts(<%= @user.microposts.count %>)</p>
+<% if @user.microposts.any? %>
+  <p>投稿数（<%= @user.microposts.count %>）</p>
+    <div class="f-container">
       <% @microposts.each do |micropost| %> 
-        <div class="col-4">
-          <ol class= "microposts ">
-            <%= link_to ( image_tag ( micropost.picture.url if micropost.picture)), micropost %>
-         </div> 
+        <div class="justify-content-start col-md-4">
+          <%= link_to ( image_tag ( micropost.picture.url if micropost.picture)), micropost %>
+        </div>
       <% end %> 
- <% end %>
+    </div>
+<% end %>
+ 
 
  <% @comments.each do |comment| %>
   <%= comment.user.username %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in, only: [:index, :edit, :update]
+  before_action :require_logged_in, only: [:index, :edit, :update, :folloeing, :followers]
   before_action :correct_user, only: [:edit, :update]
   
   def new
@@ -46,6 +46,20 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end 
+
+  def follower
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
+  end 
 
   private
 
