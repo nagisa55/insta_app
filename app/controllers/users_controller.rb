@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_logged_in, only: [:index, :edit, :update, :destroy, :folloeing, :followers]
-  before_action :correct_user, only: [:edit, :update, :delete]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def new
     @user = User.new
