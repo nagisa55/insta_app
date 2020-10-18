@@ -5,8 +5,8 @@
 	validates :username, presence: true, length: { maximum: 20 },
 						uniqueness: { case_sensitive: false }
 	validates :email, presence: true, length: { maximum: 255 },
-										format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
-										uniqueness: { case_sensitive: false }
+						format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
+						uniqueness: { case_sensitive: false }
 	validates :introduction, length: { maximum: 100 }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -32,7 +32,6 @@
 	def following?(other_user)
 		self.followings.include?(other_user)
 	end
-	
 	
 end
 

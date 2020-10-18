@@ -3,27 +3,27 @@
 		<%= form_with(model: @user, local: true) do |f| %>
 			<%= render 'shared/error_messages' %>
 				<div>
-						<%= f.label :lastname, "Last name" %>
+						<%= f.label :lastname, "性" %>
 						<%= f.text_field :lastname, class: 'form-control' %>	
 				</div>
 
 				<div>
-						<%= f.label :firstname, "First name" %>
+						<%= f.label :firstname, "名" %>
 						<%= f.text_field :firstname, class: 'form-control' %>		
 				</div>
 
 				<div>
-						<%= f.label :username, "User name" %>
+						<%= f.label :username, "ユーザーネーム" %>
 						<%= f.text_field :username, class: 'form-control' %>	
 				</div>
 
 				<div>
-						<%= f.label :tel, "Tel" %>
+						<%= f.label :tel, "電話番号" %>
 						<%= f.text_field :tel, class: 'form-control' %>	
 				</div>
 
 				<div>
-						<%= f.label :email, "Email" %>
+						<%= f.label :email, "メールアドレス" %>
 						<%= f.text_field :email, class: 'form-control' %>	
 				</div>
 				<div>
@@ -32,13 +32,13 @@
 				</div>
 
 				<div>
-						<%= f.label :password, "Password" %>
+						<%= f.label :password, "パスワード" %>
 						<%= f.password_field :password, class: 'form-control' %>
 				</div>
 
 				<div>
-						<%= f.label :password_confirmation %>
-						<%= f.text_field :password_confirmation, class: 'form-control' %>
+						<%= f.label :password_confirmation, "パスワード(確認用)" %>
+						<%= f.password_field :password_confirmation, class: 'form-control' %>
 				</div>
 
 				<%= f.submit yield(:button_text), class: "btn btn-primary" %>

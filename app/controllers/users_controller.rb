@@ -11,15 +11,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @title = @user.username
     @user = User.find(params[:id]) 
-    @microposts = @user.microposts.paginate(page: params[:page])  
+    @microposts = @user.microposts 
     @micropost = Micropost.new  
     @comments = @micropost.comments  
-    counts(@user)
-    favorites = Favorite.where(user_id: current_user.id).pluck(:micropost_id)
-    @favorite_list = Micropost.find(favorites)
   end
-
 
   def create
     @user = User.new(user_params)
@@ -35,7 +32,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-
 
   def update
     @user = User.find(params[:id])
@@ -70,7 +66,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:lastname, :firstname, :username, :password, :password_confirmation, :agreement, :introduction )
+    params.require(:user).permit(:lastname, :firstname, :username, :email, :tel, :introduction, :password, :password_confirmation)
   end
 
 end
