@@ -11,7 +11,7 @@
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	has_many :microposts, dependent: :destroy
-	has_many :comments
+	has_many :comments, dependent: :delete_all
 	has_many :relationships
 	has_many :followings, through: :relationships, source: :follow
 	has_many :reverse_of_relationship, class_name: "Relationship", foreign_key: "follow_id"
