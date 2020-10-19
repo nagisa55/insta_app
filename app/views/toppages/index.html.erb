@@ -1,16 +1,13 @@
 <% if logged_in? %>
-<!--投稿写真一覧--> 
-	<div class="f-container">
+	<!--投稿写真一覧--> 
+  <div class="f-container">
 		<% if @microposts.any? %>	
 			<% @microposts.each do |micropost| %> 
 				<div class="item justify-content-start col-md-4">
-					<ol id="micropost-<%= micropost.id %>">
-
 						<!-- Button trigger modal -->
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= micropost.id %>">
 							<%= image_tag micropost.picture.url if micropost.picture %>
 						</button>
-
 						<!--Modal-->
 						<%= render "microposts/modal", micropost: @micropost %>
 				</div>			

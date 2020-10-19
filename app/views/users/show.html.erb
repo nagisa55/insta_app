@@ -1,25 +1,24 @@
 <% provide(:title, "ユーザー詳細") %>
-<!--ユーザープロフィール-->
-<% provide(:title, @user.username) %>
-<div class="container">
-  <div class="row">
-    <aside class="col-md-6">
-      <section class="user_info">
-        <h1>
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
-          <%= @user.username %>
-        </h1>
-        <div>
-          <%= @user.introduction %>
-        </div>
-      </section>
-      <% if @user == current_user %>
-        <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-        <%= link_to "アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除しますか?" }%>
-      <% end %> 
-    </aside>
-  </div>
- </div> 
+  <!--ユーザープロフィール-->
+  <div class="container">
+    <div class="row">
+      <aside class="col-md-6">
+        <section class="user_info">
+          <h1>
+            <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 80 }) %>" alt="">
+            <%= @user.username %>
+          </h1>
+          <div>
+            <%= @user.introduction %>
+          </div>     
+            <% if @user == current_user %>
+              <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+              <%= link_to "アカウント削除", user_path, method: :delete, data: { confirm: "アカウントを削除しますか?" }%>
+            <% end %> 
+        </section>
+      </aside>
+    </div>
+  </div> 
 
  <!--フォローボタン-->
 <%= render 'relationships/follow_button', user: @user %>
@@ -42,10 +41,4 @@
     </div>
 <% end %>
  
-
- <% @comments.each do |comment| %>
-  <%= comment.user.username %>
-  <%= comment.comment_content %>
-  <% end %>
-
 

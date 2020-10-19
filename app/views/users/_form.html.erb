@@ -3,44 +3,37 @@
 		<%= form_with(model: @user, local: true) do |f| %>
 			<%= render 'shared/error_messages' %>
 				<div>
-						<%= f.label :lastname, "性" %>
-						<%= f.text_field :lastname, class: 'form-control' %>	
-				</div>
-
-				<div>
-						<%= f.label :firstname, "名" %>
-						<%= f.text_field :firstname, class: 'form-control' %>		
-				</div>
-
-				<div>
-						<%= f.label :username, "ユーザーネーム" %>
-						<%= f.text_field :username, class: 'form-control' %>	
-				</div>
-
-				<div>
-						<%= f.label :tel, "電話番号" %>
-						<%= f.text_field :tel, class: 'form-control' %>	
-				</div>
-
-				<div>
-						<%= f.label :email, "メールアドレス" %>
-						<%= f.text_field :email, class: 'form-control' %>	
+					<%= f.label :lastname, "性" %>
+					<%= f.text_field :lastname, class: 'form-control' %>	
 				</div>
 				<div>
-						<%= f.label :introduction, "自己紹介" %>
-						<%= f.text_field :introduction, class: 'form-control' %>	
+					<%= f.label :firstname, "名" %>
+					<%= f.text_field :firstname, class: 'form-control' %>		
 				</div>
-
 				<div>
-						<%= f.label :password, "パスワード" %>
-						<%= f.password_field :password, class: 'form-control' %>
+					<%= f.label :username, "ユーザーネーム" %>
+					<%= f.text_field :username, class: 'form-control' %>	
 				</div>
-
 				<div>
-						<%= f.label :password_confirmation, "パスワード(確認用)" %>
-						<%= f.password_field :password_confirmation, class: 'form-control' %>
+					<%= f.label :tel, "電話番号" %>
+					<%= f.text_field :tel, class: 'form-control' %>	
 				</div>
-
+				<div>
+					<%= f.label :email, "メールアドレス" %>
+					<%= f.text_field :email, class: 'form-control' %>	
+				</div>
+				<div>
+					<%= f.label :introduction, "自己紹介" %>
+					<%= f.text_field :introduction, class: 'form-control' %>	
+				</div>
+				<div>
+					<%= f.label :password, "パスワード" %>
+					<%= f.password_field :password, class: 'form-control' %>
+				</div>
+				<div>
+					<%= f.label :password_confirmation, "パスワード(確認用)" %>
+					<%= f.password_field :password_confirmation, class: 'form-control' %>
+				</div>
 				<%= f.submit yield(:button_text), class: "btn btn-primary" %>
 		<% end %>  
 	</div>

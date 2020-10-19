@@ -3,9 +3,9 @@
 	<h3><%= @title %></h3>
 		<% if @users.any? %>
 			<% @user.followings.each do |user| %>
-			<img class="rounded img-fluid" src="<%= gravatar_url(user, { size: 30 }) %>" alt="">
-			<%= user.username %>
-			<%= link_to '詳細', user_path(user) %>
+				<img class="rounded img-fluid" src="<%= gravatar_url(user, { size: 30 }) %>" alt="">
+				<%= user.username %>
+				<%= link_to '詳細', user_path(user) %>
 			<% end %>
 		<% end %>
 		
