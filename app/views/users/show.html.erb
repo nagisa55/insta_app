@@ -20,8 +20,8 @@
     </div>
   </div> 
 
- <!--フォローボタン-->
-<%= render 'relationships/follow_button', user: @user %>
+  <!--フォローボタン-->
+  <%= render 'relationships/follow_button', user: @user %>
   <div class="container">
     <ul class="f-container nav nav-tabs nav-justified mb-3">
       <li class="col-md-5 nav-item"><a href="<%= following_user_path(@user) %>">フォロー</a><%= @count_followings %></li>
@@ -29,16 +29,16 @@
     </ul>
   </div>
 
-<!--投稿写真一覧-->
-<% if @user.microposts.any? %>
-  <p>投稿数（<%= @user.microposts.count %>）</p>
-    <div class="f-container">
-      <% @microposts.each do |micropost| %> 
-        <div class="justify-content-start col-md-4">
-          <%= link_to ( image_tag ( micropost.picture.url if micropost.picture)), micropost %>
-        </div>
-      <% end %> 
-    </div>
-<% end %>
+  <!--投稿写真一覧-->
+  <% if @user.microposts.any? %>
+    <p>投稿数（<%= @user.microposts.count %>）</p>
+      <div class="f-container">
+        <% @microposts.each do |micropost| %> 
+          <div class="justify-content-start col-md-4">
+            <%= link_to ( image_tag ( micropost.picture.url if micropost.picture)), micropost %>
+          </div>
+        <% end %> 
+      </div>
+  <% end %>
  
 
