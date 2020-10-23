@@ -32,12 +32,15 @@
 
 
 #無視するファイル
-/vendor
-/test
-/public
-/lib
+/vendor/*
+/tests
 /bin
+/lib
+/public
+/test
 /log
+/assets
 /channels
+/helpers
 /jobs
 /tmp
