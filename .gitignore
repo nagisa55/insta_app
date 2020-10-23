@@ -29,3 +29,15 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+#無視するファイル
+/vendor
+/test
+/public
+/lib
+/bin
+/log
+/channels
+/jobs
+/tmp
